@@ -94,7 +94,7 @@ export const PHONE_MARGIN: Record<string, number> = {
 };
 
 /** Tutorial video in public/ (leave empty to show the text walkthrough only). */
-export const TUTORIAL_VIDEO_SRC = '';
+export const TUTORIAL_VIDEO_SRC = 'tutorial/overview.mp4';
 
 /** Seconds of context around a flagged word in the review clip (spec: 2 s each side) */
 export const REVIEW_PAD_SEC = 2;
