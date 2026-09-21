@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* Vaani tokens. Peacock blue + teal (Vaani: "voice"; the peacock's call),
+   marigold for rewards. Status colors keep the spec's green / amber / grey.
+   Components use tokens only, so dark mode is a token swap. */
+@theme {
+  --font-sans: "Atkinson Hyperlegible", system-ui, sans-serif;
+  --color-paper: #f5f6fb;
+  --color-surface: #ffffff;
+  --color-ink: #171c3a;
+  --color-ink-soft: #585f7e;
+  --color-line: #dce0ec;
+  --color-accent: #3b4fd8;
+  --color-on-accent: #ffffff;
+  --color-teal: #0e8f8a;
+  --color-sun: #e89a0c;
+  --color-matched: #1e9e61;
+  --color-practice: #c97d06;
+  --color-uncertain: #8b91a7;
+  --animate-pop: pop 380ms cubic-bezier(.2,1.4,.4,1) both;
+  --animate-rise: rise 420ms ease-out both;
+}
+
+@keyframes pop { from { transform: scale(.6); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+@keyframes rise { from { transform: translateY(12px); opacity: 0 } to { transform: none; opacity: 1 } }
+
+:root[data-theme="dark"] {
+  --color-paper: #0e1120;
+  --color-surface: #161a2e;
+  --color-ink: #e8ebf7;
+  --color-ink-soft: #a1a7c2;
+  --color-line: #283052;
+  --color-accent: #8e9bff;
+  --color-on-accent: #0e1120;
+  --color-teal: #34cfc8;
+  --color-sun: #ffc247;
+  --color-matched: #43d596;
+  --color-practice: #f5b342;
+  --color-uncertain: #8b91a7;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-paper: #0e1120;
+    --color-surface: #161a2e;
+    --color-ink: #e8ebf7;
+    --color-ink-soft: #a1a7c2;
+    --color-line: #283052;
+    --color-accent: #8e9bff;
+    --color-on-accent: #0e1120;
+    --color-teal: #34cfc8;
+    --color-sun: #ffc247;
+    --color-matched: #43d596;
+    --color-practice: #f5b342;
+    --color-uncertain: #8b91a7;
+    color-scheme: dark;
+  }
+}
+
+html, body { background: var(--color-paper); color: var(--color-ink); }
+body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
