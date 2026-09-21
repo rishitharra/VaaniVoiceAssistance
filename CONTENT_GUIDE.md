@@ -1,12 +1,12 @@
 # Vaani 4.3 — media and content guide
 
-All paths below are relative to the extracted `vaani-app` folder. Vaani does not discover videos by filename: the manifest connects a sound to its file. No production videos were supplied, so all sounds have text coaching and the tutorial has a text walkthrough.
+All paths below are relative to the extracted `vaani-app` folder. Vaani does not discover videos by filename: the manifest connects a sound to its file. All sounds have text coaching and the tutorial has a text walkthrough.
 
 ## Sound demonstration videos
 
-1. Put each MP4 (H.264/AAC recommended) in `public/clips/`. Use lowercase filenames such as `th.mp4`, `dh.mp4`, `r.mp4`, `l.mp4`, `v.mp4`, `w.mp4`.
-2. Edit `src/services/lessonManifest.ts`. Use the **uppercase canonical sound key**, not the IPA glyph or the example word.
-3. Add source attribution and any permission/license information to `CLIP_PERMISSIONS.md`.
+1. We put each mp4 in `public/clips/`. Lowercase filenames required: `th.mp4`, `dh.mp4`, `r.mp4`, `l.mp4`, `v.mp4`, `w.mp4`.
+2. We edited `src/services/lessonManifest.ts`. Use the **uppercase canonical sound key**, not the IPA glyph or the example word.
+3. If changing sources, credit to: `CLIP_PERMISSIONS.md`.
 
 ```ts
 TH: {
@@ -24,8 +24,6 @@ TH: {
 ```
 
 `start` and `end` are seconds from the beginning of the file. Omit both to use the whole clip. Several sound entries may reference different intervals of one file. Paths must omit the `public/` prefix and should use forward slashes. The player has Repeat, playback controls, source credit, and optional captions. End caps are intended for short demonstrations, not frame-exact editing; trim the source file when an exact cut matters.
-
-This version plays local video files. A YouTube watch URL is not a video source. Use an authorized local clip and put the original YouTube URL in `credit.url`. No YouTube API key or backend is needed. Media licenses/permissions remain your team's responsibility.
 
 ## Sound keys
 
@@ -53,15 +51,13 @@ Put `overview.mp4` in `public/tutorial/`, then set in `src/config.ts`:
 export const TUTORIAL_VIDEO_SRC = 'tutorial/overview.mp4';
 ```
 
-Suggested chapters: microphone selection and mic check; reading at a natural pace; matched/practice/uncertain results; listening to both clips; Agree/Disagree/Skip; targeted practice; random-practice unlock; local saves and export. Do not teach people to insert pauses between every word. Leave the setting empty until a real tutorial exists; an unrelated placeholder movie is not included.
-
 ## Coaching text and pronunciation notes
 
 Edit `src/services/coaching.ts`:
 
 - `ARTICULATION`: uppercase sound keys, one practical placement/airflow cue for each supported sound.
-- `WORD_NOTES`: lowercase dictionary spelling (`comfortable`, `thirty`, `would`, etc.). These are curated notes, not automatically generated pronunciations. State accent-dependent variants as optional, not mandatory.
-- Minimal-pair data is generated automatically into `src/data/contrasts.json`. A contrast is offered only when a CMUdict entry differs by exactly one raw ARPAbet sound after removing stress digits. No invented words. Proper-name/rare-word entries can still occur in CMUdict, so review the wording for your audience.
+- `WORD_NOTES`: lowercase dictionary spelling (`comfortable`, `thirty`, `would`, etc.). These are curated notes, not automatically generated pronunciations.
+- Minimal-pair data is generated automatically into `src/data/contrasts.json`. A contrast is offered only when a CMUdict entry differs by exactly one raw ARPAbet sound after removing stress digits. No invented words. Proper-name/rare-word entries can still occur in CMUdict.
 
 ## Sentences and dictionary
 
