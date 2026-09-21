@@ -52,8 +52,8 @@ Tutorial (ⓘ): in the app controls; set `TUTORIAL_VIDEO_SRC` in `src/config.ts`
 (negative = an alternative was more likely) and Copy diagnostics JSON. Raise a
 `PHONE_MARGIN` entry to flag that sound less, lower `GOP.errorMargin` to flag more.
 
-## Adding clips
-Drop files in `public/clips/`, fill `src/services/lessonManifest.ts`, record permission in `CLIP_PERMISSIONS.md`.
+## Regarding clips
+Clips can be accessed in `public/clips/`, and are labeled in `src/services/lessonManifest.ts`, with permission for clips coming from original creator, giving permission for clip use for teaching purposes.
 
 ## Known limits
 - The TIMIT model folds /ɔ/→/ɑ/ and /ʒ/→/ʃ/, so those pairs can't be coached.
